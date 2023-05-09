@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.Candidatos;
+import Controller.Candidato.
 
 public class Main {
     public static void main(String[] args) {
         String path = "Model\\Candidatos.txt";
-        List<Candidatos> list = new ArrayList<Candidatos>();
+        List<Candidato. list = new ArrayList<Candidato.();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();
@@ -21,7 +21,7 @@ public class Main {
                 String nome = objeto[0];
                 String id = objeto[1];
 
-                Candidatos cand = new Candidatos(nome, id);
+                Candidato.cand = new Candidato.nome, id);
 
                 list.add(cand);
 
