@@ -16,7 +16,8 @@ public abstract class Eleitor {
     protected String getId(){
         return this.id;
     }
-   
+    
+    
     public static List<String> readCodigosFromFile(String filePath) throws IOException {
         List<String> codigos = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filePath));

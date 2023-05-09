@@ -3,10 +3,10 @@ import random
 import time
 
 # ler tabela em excel
-df = pd.read_excel('socios1.xlsx')
+df = pd.read_excel(r'C:\Users\victo\Downloads\socios1.xlsx')
 
 # selecionar coluna desejada
-coluna = df['B']
+coluna = df['Plano']
 
 # criar lista vazia para armazenar os códigos gerados
 codigos = []
@@ -45,4 +45,5 @@ for i in range(len(coluna)):
 df['codigo'] = codigos
 
 # salvar tabela com os códigos gerados em um novo arquivo excel
-df.to_excel('sociosID.xlsx', index=False)
+df.to_excel(r'C:\Users\victo\Downloads\sociosID.xlsx', index=False)
+
