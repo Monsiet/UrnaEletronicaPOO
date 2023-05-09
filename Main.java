@@ -9,7 +9,7 @@ import Controller.Candidato.
 public class Main {
     public static void main(String[] args) {
         String path = "Model\\Candidatos.txt";
-        List<Candidato. list = new ArrayList<Candidato.();
+        List<Candidato list = new ArrayList<Candidato()>;
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line = br.readLine();

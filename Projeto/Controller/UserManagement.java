@@ -1,4 +1,4 @@
-package Controller;
+package Projeto.Controller;
 
 public abstract class UserManagement {
     protected String usuario;
