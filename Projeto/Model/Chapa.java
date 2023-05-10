@@ -2,7 +2,6 @@ package Projeto.Model;
 
 public abstract class Chapa {
     protected String  id;
-    protected String  nomeDaChapa;
     protected String  presidente;
     protected String  vice;
     protected String  secretarioGeral;
@@ -11,7 +10,7 @@ public abstract class Chapa {
     public String getId() {
         return this.id;
     }
-    public String getPreside() {
+    public String getPresidente() {
         return this.presidente;
     }
     public String getVice() {
@@ -21,12 +20,4 @@ public abstract class Chapa {
         return this.secretarioGeral;
     }
 
-
-    @Override
-	public String toString() {
-		return "chapa: " + id + "Membros: " + presidente + "," + vice + "," + secretarioGeral;
-	}
-
-
-    
 }
