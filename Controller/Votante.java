@@ -1,10 +1,10 @@
 package Controller;
-import Model.Eleitor;
 
-public class Votante extends Eleitor {
+
+public class Votante {
 
     public Votante(String id) {
-        super(id);
+        super();
         //TODO Auto-generated constructor stub
     }
     

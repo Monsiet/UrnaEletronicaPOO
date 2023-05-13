@@ -3,10 +3,10 @@ package Model;
 
 public abstract class Usuario{
 
-    protected String identidade;
+    protected String id;
 
-    public String getIdentidade(){
-        return identidade;
+    public String getId(){
+        return this.id;
     }
-
+    
 }

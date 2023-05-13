@@ -5,18 +5,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Eleitor {
+public class Eleitor extends Usuario {
 
-    protected String id;
+    protected Boolean voto;
     
     public Eleitor(String id) {
         this.id = id;
+        this.voto = true;
     }
 
-    protected String getId(){
-        return this.id;
+    public Boolean getVoto() {
+        return voto;
     }
-    
+
+    public void voto() {
+        this.voto = false;
+    }
     
     public static List<String> readCodigosFromFile(String filePath) throws IOException {
         List<String> codigos = new ArrayList<>();
@@ -28,5 +32,4 @@ public abstract class Eleitor {
         br.close();
         return codigos;
     }
-
 }
