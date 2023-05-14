@@ -1,8 +1,7 @@
-package Model;
+package Controller;
 
-import Controller.ManipulaDados;
 
-public class Eleitor implements ManipulaDados {
+public class Eleitor {
 
     protected String id;
     protected Boolean voto;

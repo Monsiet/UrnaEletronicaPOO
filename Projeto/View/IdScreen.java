@@ -9,8 +9,6 @@ import java.io.IOException;
 import Controller.*;
 
 public class IdScreen extends JFrame {
-    private String id;
-
 
     public IdScreen() {
         setTitle("Tela de Login"); 
@@ -58,6 +56,7 @@ public class IdScreen extends JFrame {
 
         panel.add(continuar);
         add(panel);
+        
     }
     
     

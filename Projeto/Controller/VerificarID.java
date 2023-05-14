@@ -11,15 +11,15 @@ public class VerificarID {
         //Cria uma lista de eleitores verificando se ele ja votou ou n
         List<Eleitor> idEleitor = new ArrayList<>();
         List<String> listEleitor = new ArrayList<>();
-        listEleitor = ManipulaDados.ler("Projeto\\Model\\BancoDeEleitoresID.txt");
-        List<String> listV = new ArrayList<>();
-        listV = ManipulaDados.ler("Projeto\\Model\\LogVotos.txt");
+        listEleitor = ManipulaDados.ler("BancoDeEleitoresID.txt");
+        List<String> listVotos = new ArrayList<>();
+        listVotos = ManipulaDados.ler("LogVotos.txt");
         for(int i = 0; i < listEleitor.size(); i++) {
             String lista = listEleitor.get(i);
             Eleitor eleitor = new Eleitor(lista);
             idEleitor.add(eleitor);
-            for(int u = 0; u < listV.size(); u++) {
-                if (idEleitor.get(i).getId().equals(listV.get(u))) {
+            for(int u = 0; u < listVotos.size(); u++) {
+                if (idEleitor.get(i).getId().equals(listVotos.get(u))) {
                     idEleitor.get(i).voto();
                 }
             }
@@ -40,30 +40,30 @@ public class VerificarID {
         }
     }
 
-    // public static boolean validaAdmin(String id) {
-    //     //Cria uma lista de admins
-    //     List<Admin> idA = new ArrayList<>();
-    //     List<String> listA = new ArrayList<>();
-    //     listA = ManipulaDados.ler("Projeto\\Model\\BaconDeAdmins.txt");
-    //     for(int i = 0; i < listA.size(); i++) {
-    //         String lista = listA.get(i);
-    //         Admin admin = new Admin(lista);
-    //         idA.add(admin);
-    //     }
+    public static boolean validaAdmin(String id) throws IOException {
+        //Cria uma lista de admins
+        List<Admin> idAdmin = new ArrayList<>();
+        List<String> listA = new ArrayList<>();
+        listA = ManipulaDados.ler("BaconDeAdmins.txt");
+        for(int i = 0; i < listA.size(); i++) {
+            String lista = listA.get(i);
+            Admin admin = new Admin(lista);
+            idAdmin.add(admin);
+        }
         
-    //     boolean valido = false;
+        boolean valido = false;
 
-    //     for (int i = 0; i < idA.size(); i++) {
-    //         if (id.equals(idA.get(i).getId())){
-    //            valido = true;
-    //         }
-    //     }
+        for (int i = 0; i < idAdmin.size(); i++) {
+            if (id.equals(idAdmin.get(i).getId())){
+               valido = true;
+            }
+        }
         
-    //     if (valido) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        if (valido) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }

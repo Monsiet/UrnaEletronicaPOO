@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Model.*;
 
 public class MesarioScreen extends JFrame {
     public MesarioScreen() {
@@ -41,6 +42,9 @@ public class MesarioScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Lógica para parar a votação
                 JOptionPane.showMessageDialog(MesarioScreen.this, "Votação parada!");
+                ManipulaDados.apagarLog("LogVotos.txt");
+                dispose();
+                new IdScreen().setVisible(true);
             }
         });
 

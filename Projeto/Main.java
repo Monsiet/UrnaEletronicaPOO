@@ -1,33 +1,43 @@
-// import View.IdScreen;
+import java.lang.reflect.Array;
+import java.lang.reflect.Array;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import java.io.*;
-import java.util.*;
-
+import Model.HashGeneratorString;
+import Model.ManipulaDados;
+import View.*;
 import Model.*;
 
-public class Main {
-    public static void main(String[] args) {
-        String path = "Projeto\\Model\\BancoDeEleitoresID.txt";
-        List<Eleitor> id = new ArrayList<>();
-        try {
-            File ids = new File(path);
-            Scanner scan = new Scanner(ids);
-
-            while (scan.hasNextLine()) {
-                Eleitor eleitor = new Eleitor(scan.nextLine());
-                id.add(eleitor);
-            }
-            //023002315
-            scan.close();
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Arquivo não encontrado: " + path);
-            e.printStackTrace();
-        }
+public class Main implements ManipulaDados{
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        new IdScreen().setVisible(true);
 
 
-        for (int i = 0; i < id.size(); i++) {
-            System.out.println(id.get(i));
-        }
+        // List<String> list = ManipulaDados.ler("BancoDeEleitores.txt"); 
+        // String[] idEleitores = list.toArray(new String[list.size()]);
+        // String elementos = String.join(", ", idEleitores);
+        // System.out.println(elementos);
+        
+
+
+
+
+        // String[] hash = new String[list.size()];
+
+        // for (int i = 0; i < idEleitores.length; i++) {
+        //     hash[i] = HashGeneratorString.generateHashString(idEleitores[i]);
+        // }
+        // // System.out.println(Arrays.toString(hash));
+
+        // for (int i = 0; i < idEleitores.length; i++) {
+        //     ManipulaDados.escreverLogNHash(idEleitores[i], hash[i], "BancoDeEleitores.txt");
+
+        // }
     }
 }
+
+    
+
+    

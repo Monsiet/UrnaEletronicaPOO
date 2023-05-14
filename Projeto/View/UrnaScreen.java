@@ -1,15 +1,20 @@
 package View;
 
 import javax.swing.*;
+import Model.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.util.List;
 
-public class UrnaScreen extends JFrame {
+
+
+public class UrnaScreen extends JFrame implements ManipulaDados {
     private JList<String> listaChapa;
     private JButton confirmar;
 
-    public UrnaScreen(String id) {
+    public UrnaScreen(String id) throws FileNotFoundException {
         setTitle("Urna Eletronica");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 200);
@@ -19,7 +24,9 @@ public class UrnaScreen extends JFrame {
         JLabel label = new JLabel("Vote na chapa desejada:");
         add(label);
         //precisa adicionar uma forma de ler o banco de dados das chapas para que possa ser informada abaixo
-        String[] names = {"Chapa 1", "Chapa 2", "Chapa 3", "Chapa 4", "Chapa 5"};
+        List<String> chapas = ManipulaDados.ler("BancoDeChapas.txt");
+        String[] names = chapas.toArray(new String[chapas.size()]);
+        System.out.println ("chapas: " + names);
 
         listaChapa = new JList<>(names);
         listaChapa.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -34,6 +41,7 @@ public class UrnaScreen extends JFrame {
                 String selectedName = listaChapa.getSelectedValue();
                 JOptionPane.showMessageDialog(null, "Nome selecionado: " + selectedName);
 
+                ManipulaDados.escreverLogNHash(id," ", "LogVotos.txt");
                 dispose();
                 new IdScreen().setVisible(true);
             }
@@ -42,11 +50,15 @@ public class UrnaScreen extends JFrame {
 
     }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new UrnaScreen().setVisible(true);
+                try {
+                    new UrnaScreen("").setVisible(true);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
