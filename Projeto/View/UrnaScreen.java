@@ -9,7 +9,7 @@ public class UrnaScreen extends JFrame {
     private JList<String> listaChapa;
     private JButton confirmar;
 
-    public UrnaScreen() {
+    public UrnaScreen(String id) {
         setTitle("Urna Eletronica");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 200);

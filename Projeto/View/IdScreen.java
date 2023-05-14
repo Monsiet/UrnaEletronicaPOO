@@ -1,11 +1,17 @@
 package View;
 
 import javax.swing.*;
+
+import java.awt.HeadlessException;
 import java.awt.event.*;
+import java.io.IOException;
 
 import Controller.*;
 
 public class IdScreen extends JFrame {
+    private String id;
+
+
     public IdScreen() {
         setTitle("Tela de Login"); 
         setSize(450, 75); 
@@ -19,28 +25,33 @@ public class IdScreen extends JFrame {
         //caxa de texto, para que o usuario possa inserir seu id
         JTextField userID = new JTextField(20);
         panel.add(userID);
-
+        
         //botão para que o usuario possa confirmar a informação inserida
         JButton continuar = new JButton("continuar");
         continuar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 //verifica se é um eleitor e se é valido
-                if (VerificarID.validaEleitor(userID.getText())) {
-                    dispose();
-                    new UrnaScreen(userID.getText()).setVisible(true);
-                }
+                try {
+                    if (VerificarID.validaEleitor(userID.getText())) {
+                        dispose();
+                        new UrnaScreen(userID.getText()).setVisible(true);
+                    }
 
-                //verifica se é um admin
-                else if (VerificarID.validaAdmin(userID.getText())) {
-                    dispose();
-                    new MesarioScreen().setVisible(true);
-                } 
+                    //verifica se é um admin
+                    else if (VerificarID.validaAdmin(userID.getText())) {
+                        dispose();
+                        new MesarioScreen().setVisible(true);
+                    } 
 
-                //em caso de erro
-                else {
-                    JOptionPane.showMessageDialog(null,
-                    "ID invalido!", "Erro de Login", JOptionPane.ERROR_MESSAGE);
+                    //em caso de erro
+                    else {
+                        JOptionPane.showMessageDialog(null,
+                        "ID invalido!", "Erro de Login", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (HeadlessException | IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                 }
             }
         });
@@ -48,9 +59,12 @@ public class IdScreen extends JFrame {
         panel.add(continuar);
         add(panel);
     }
+    
+    
 
-    //apenas para test
+
+   //apenas para test
     public static void main(String[] args) {
         new IdScreen().setVisible(true);
     }
-}
+}   

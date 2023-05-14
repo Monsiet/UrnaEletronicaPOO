@@ -8,7 +8,7 @@ import java.util.List;
 public interface ManipulaDados {
     //metodos de ler e escrever banco de dados
     
-    public static List<String> readCodigosFromFile(String filePath) throws IOException {
+    public static List<String> ler(String filePath) throws IOException {
         List<String> codigos = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         String line;

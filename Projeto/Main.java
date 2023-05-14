@@ -7,7 +7,7 @@ import Model.*;
 
 public class Main {
     public static void main(String[] args) {
-        String path = "C:\\Users\\victo\\OneDrive\\Área de Trabalho\\Projeto\\Model\\BancoDeEleitoresID.txt";
+        String path = "Projeto\\Model\\BancoDeEleitoresID.txt";
         List<Eleitor> id = new ArrayList<>();
         try {
             File ids = new File(path);
