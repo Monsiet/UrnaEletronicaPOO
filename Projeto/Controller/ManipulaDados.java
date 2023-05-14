@@ -1,33 +1,12 @@
-package Model;
+package Controller;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.ManipulaDados;
-
-public class Eleitor implements ManipulaDados {
-
-    protected String id;
-    protected Boolean voto;
-    
-    public Eleitor(String id) {
-        this.id = id;
-        this.voto = true;
-    }
-
-    public String getId(){
-        return this.id;
-    }
-    
-    public Boolean getVoto() {
-        return voto;
-    }
-
-    public void voto() {
-        this.voto = false;
-    }
+public interface ManipulaDados {
+    //metodos de ler e escrever banco de dados
     
     public static List<String> readCodigosFromFile(String filePath) throws IOException {
         List<String> codigos = new ArrayList<>();
@@ -39,4 +18,5 @@ public class Eleitor implements ManipulaDados {
         br.close();
         return codigos;
     }
+    
 }
