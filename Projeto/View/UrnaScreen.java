@@ -39,9 +39,9 @@ public class UrnaScreen extends JFrame implements ManipulaDados {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedName = listaChapa.getSelectedValue();
-                JOptionPane.showMessageDialog(null, "Nome selecionado: " + selectedName);
+                JOptionPane.showMessageDialog(null, "Chapa selecionada: " + selectedName);
 
-                ManipulaDados.escreverLogNHash(id," ", "LogVotos.txt");
+                ManipulaDados.escreverLogNHash(id," ", "BandoDeLogVotos.txt");
                 dispose();
                 new IdScreen().setVisible(true);
             }

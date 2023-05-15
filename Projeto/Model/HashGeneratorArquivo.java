@@ -30,7 +30,7 @@ public class HashGeneratorArquivo {
 
   public static void main(String[] args) {
     try {
-      File file = new File("Projeto/Model/BancoDeEleitoresID.txt");
+      File file = new File("Projeto\\Model\\BancoDeEleitoresID.txt");
       String hash = generateHashFile(file);
       System.out.println("Hash SHA256 do arquivo: " + hash);
     } catch (NoSuchAlgorithmException | IOException e) {
