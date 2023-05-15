@@ -48,7 +48,6 @@ public class IdScreen extends JFrame {
                         "ID invalido!", "Erro de Login", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (HeadlessException | IOException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
             }
@@ -57,13 +56,5 @@ public class IdScreen extends JFrame {
         panel.add(continuar);
         add(panel);
         
-    }
-    
-    
-
-
-   //apenas para test
-    public static void main(String[] args) {
-        new IdScreen().setVisible(true);
     }
 }   

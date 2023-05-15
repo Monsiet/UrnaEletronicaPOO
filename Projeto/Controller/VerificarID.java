@@ -11,9 +11,9 @@ public class VerificarID {
         //Cria uma lista de eleitores verificando se ele ja votou ou n
         List<Eleitor> idEleitor = new ArrayList<>();
         List<String> listEleitor = new ArrayList<>();
-        listEleitor = ManipulaDados.ler("BancoDeEleitoresID.txt");
+        listEleitor = ManipulaDados.lerComHash("BaconDeEleitoresHash.txt");
         List<String> listVotos = new ArrayList<>();
-        listVotos = ManipulaDados.ler("LogVotos.txt");
+        listVotos = ManipulaDados.lerComHash("BaconDeLogVotos.txt");
         for(int i = 0; i < listEleitor.size(); i++) {
             String lista = listEleitor.get(i);
             Eleitor eleitor = new Eleitor(lista);
@@ -44,7 +44,7 @@ public class VerificarID {
         //Cria uma lista de admins
         List<Admin> idAdmin = new ArrayList<>();
         List<String> listA = new ArrayList<>();
-        listA = ManipulaDados.ler("BaconDeAdmins.txt");
+        listA = ManipulaDados.lerComHash("BaconDeAdminsHash.txt");
         for(int i = 0; i < listA.size(); i++) {
             String lista = listA.get(i);
             Admin admin = new Admin(lista);
@@ -54,7 +54,7 @@ public class VerificarID {
         boolean valido = false;
 
         for (int i = 0; i < idAdmin.size(); i++) {
-            if (id.equals(idAdmin.get(i).getId())){
+            if (id.equals(idAdmin.get(i).getIdentidade())){
                valido = true;
             }
         }

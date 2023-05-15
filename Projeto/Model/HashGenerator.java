@@ -7,7 +7,7 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashGeneratorArquivo {
+public interface HashGenerator {
 
   public static String generateHashFile(File file) throws NoSuchAlgorithmException, IOException {
     MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -28,14 +28,19 @@ public class HashGeneratorArquivo {
     return hexString.toString();
   }
 
-  public static void main(String[] args) {
-    try {
-      File file = new File("Projeto\\Model\\BancoDeEleitoresID.txt");
-      String hash = generateHashFile(file);
-      System.out.println("Hash SHA256 do arquivo: " + hash);
-    } catch (NoSuchAlgorithmException | IOException e) {
-      System.err.println("Erro ao gerar hash: " + e.getMessage());
+  public static String generateHashString(String text) throws NoSuchAlgorithmException {
+    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+    byte[] hashBytes = digest.digest(text.getBytes());
+    StringBuilder hexString = new StringBuilder();
+
+    for (byte b : hashBytes) {
+      String hex = Integer.toHexString(0xff & b);
+      if (hex.length() == 1) hexString.append('0');
+      hexString.append(hex);
     }
+
+    return hexString.toString();
   }
+
 }
 

@@ -1,22 +1,17 @@
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.lang.reflect.Array;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import Model.HashGeneratorString;
+
 import Model.ManipulaDados;
 import View.*;
 import Model.*;
 
-public class Main implements ManipulaDados{
+public class Main implements ManipulaDados, HashGenerator{
     public static void main(String[] args) throws NoSuchAlgorithmException, IOException {
-        // new IdScreen().setVisible(true);
+        new IdScreen().setVisible(true);
 
 
-        // List<String> list = ManipulaDados.lerModif("BancoDeEleitores.txt"); 
+        // List<String> list = ManipulaDados.lerModif("BaconDeEleitores.txt"); 
         // String[] idEleitores = list.toArray(new String[list.size()]);
         // String elementos = String.join(", ", idEleitores);
         // System.out.println(elementos);
@@ -29,13 +24,13 @@ public class Main implements ManipulaDados{
         // // System.out.println(Arrays.toString(hash));
 
         // for (int i = 0; i < idEleitores.length; i++) {
-        //     ManipulaDados.escreverLogNHash(idEleitores[i], hash[i], "BancoDeEleitoresID.txt");
+        //     ManipulaDados.escreverLogNHash(idEleitores[i], hash[i], "BaconDeEleitoresID.txt");
 
         // }
 
-        CriptoHash hashficad = new CriptoHash();
+        // CriptoHash hashficad = new CriptoHash();
 
-        hashficad.hashficacao("BaconDeAdmins.txt", "BancoDeChapasAdminsHash.txt");
+        // hashficad.hashficacao("BaconDeAdmins.txt", "BaconDeChapasAdminsHash.txt");
     }
 }
 
