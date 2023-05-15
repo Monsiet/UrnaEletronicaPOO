@@ -24,7 +24,7 @@ public class UrnaScreen extends JFrame implements ManipulaDados {
         JLabel label = new JLabel("Vote na chapa desejada:");
         add(label);
         //precisa adicionar uma forma de ler o banco de dados das chapas para que possa ser informada abaixo
-        List<String> chapas = ManipulaDados.ler("BancoDeChapas.txt");
+        List<String> chapas = ManipulaDados.lerComHash("BancoDeChapas.txt");
         String[] names = chapas.toArray(new String[chapas.size()]);
         System.out.println ("chapas: " + names);
 

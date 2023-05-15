@@ -1,18 +1,17 @@
 package Controller;
 
+import Model.Usuario;
 
-public class Eleitor {
-
-    protected String id;
+public class Eleitor extends Usuario{
     protected Boolean voto;
     
-    public Eleitor(String id) {
-        this.id = id;
+    public Eleitor(String identidade) {
+        this.identidade = identidade;
         this.voto = true;
     }
 
     public String getId(){
-        return this.id;
+        return this.identidade;
     }
     
     public Boolean getVoto() {

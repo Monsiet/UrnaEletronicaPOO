@@ -5,25 +5,31 @@ import java.util.*;
 
 public interface ManipulaDados {
     // serve para ler um arquivo e retornar uma lista contendo cada linha nele
-    public static List<String> ler(String path) {
-        List<String> list = new ArrayList<>();
+    public static List<String[]> lerChapa(String path) {
+        List<String[]> list = new ArrayList<>();
+        List<String[]> listHash = new ArrayList<>();
+
         try {
             File lista = new File(("Projeto\\Model\\" + path));
             Scanner scan = new Scanner(lista);
-
+    
             while (scan.hasNextLine()) {
-                list.add(scan.nextLine());
+                String[] line = scan.nextLine().split(" ");
+                list.add(new String[]{line[0]});
+                listHash.add(new String[]{line[1]});
             }
             scan.close();
-
+    
         } catch (FileNotFoundException excecao) {
             System.out.println("Arquivo nao encontrado: " + path);
             excecao.printStackTrace();
         }
+        
         return list;
     }
+    
 
-    public static List<String> lerModif(String path) {
+    public static List<String> lerComHash(String path) {
         List<String> list = new ArrayList<>();
         try {
             File lista = new File(("Projeto\\Model\\" + path));
